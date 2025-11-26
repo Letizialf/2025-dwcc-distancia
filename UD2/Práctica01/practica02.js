@@ -63,9 +63,79 @@ function calcularPrezoConIva(prezo, iva) {
   return prezo + taxaIva;
 }
 
-let prezoProduto = 100;
+let prezoProd = 100;
 let iva = 21;
 // Chamando á función e amosando o prezo total
-console.log(calcularPrezoConIva(prezoProduto, iva));
+console.log(calcularPrezoConIva(prezoProd, iva));
 
 console.log(calcularPrezoConIva(21, 21)); //O prezo son 21€ e o IVA que hai que aplicarlle a ese prezo é do 21%, polo que o resultado final será 21(prezo) + 21% de 21(IVA) = 25.41(prezo con IVA)
+console.log("---------------------------------");
+
+// EXERCICIO 3--------------------------------------
+console.log(
+  "Exercicio 3: Declara variables e constantes cos nomes correctos e asignalles un valor adecuado"
+);
+
+console.log("1. Constante chamada pi co valor 3,1416");
+
+const pi = Math.PI.toFixed(4); //Comentada polo ex4
+console.log(pi);
+
+console.log("2. Variable edad co valor 30");
+
+let edad = 30;
+console.log(edad);
+
+console.log("3. Variable chamada nomeCompleto co valor Luis Gomez");
+
+let nomeCompleto = "Luis Gomez";
+console.log(nomeCompleto);
+
+console.log("---------------------------------");
+
+// EXERCICIO 4--------------------------------------
+console.log("Exercicio 4: Reasignación de variables e constantes ");
+//Completa o seguinte código onde se debe calcular a área dun círculo e logo modificar a súa cor.
+
+// Declaración de constantes e variables
+const pi2 = 3.1416;
+let radio = 5;
+// Cálculo da área do círculo
+let area = pi2 * (radio * radio);
+// Declaración da cor do círculo
+let corCírculo = "vermello";
+// Cambiar a cor do círculo
+corCírculo = "azul";
+console.log("Área: " + area + ", Cor: " + corCírculo);
+
+//Constante número aureo co valor 1.618033
+const aureo = 1.618033;
+console.log(aureo);
+console.log("---------------------------------");
+
+// EXERCICIO 5--------------------------------------
+console.log(
+  "Exercicio 5: Refactoriza o seguinte código para que non se reutilicen variables innecesariamente e non se cometan erros de reasignación."
+);
+
+// Para evitar erros imos a converter estas variables en constantes, para que non se poidan modificar os seus valores
+const prezoProduto = 50;
+const desconto = 10;
+let prezoFinal = prezoProduto - desconto;
+console.log("O prezo final é: " + prezoFinal);
+
+// Se despois se quere calcular outro prezoFinal simplemente podemos declarar novas variables e listo.
+
+var prezoProduto2 = 100;
+var prezoFinal2 = prezoProduto2 - desconto; // Usar novas variables ou corrixir a lóxica
+console.log(`O prezo final é: ${prezoFinal2}`);
+
+// Tamén se podería converter o cálculo nunha función, que podemos chamar pasando como parámetros as variables que nós queiramos e así evitar calcular o mesmo 2 veces
+
+function calculoPrezoFinal(prezo, desconto) {
+  let prezoFin = prezo - desconto;
+  return `O prezo final é: ${prezoFin}`;
+}
+
+console.log(calculoPrezoFinal(prezoProduto, desconto));
+console.log(calculoPrezoFinal(prezoProduto2, desconto));

@@ -6,5 +6,71 @@
     <title>Unidade_02-Practica01</title>
     <script src="practica02.js"></script>
   </head>
-  <body></body>
+  <body>
+    <h3>Inspecciona para ver os exercicios resoltos</h3>
+
+    <h4>Exercicio 1 - Engadir Comentarios</h4>
+    <p>
+      Engade os comentarios necesarios para que alguén sen coñecemento previo
+      poida entender o código.
+    </p>
+    <pre>
+      // Escribe os comentarios explicativos aquí 
+      let nome = "María"; 
+      let idade = 25; 
+      function presentarUsuario(nome, idade) { 
+        return nome + " ten " + idade +" anos."; 
+      } 
+      console.log(presentarUsuario(nome, idade))
+    </pre>
+
+    <h4>Exercicio 2 - Engadir comentarios nunha función</h4>
+    <p>
+      Engade os comentarios necesarios para que alguén sen coñecemento previo
+      poida entender o código
+    </p>
+
+    <pre>
+      // Definir unha función que calcula o prezo total incluíndo impostos
+        
+      function calcularPrezoConIva(prezo, iva) {
+        // Calcula o imposto a aplicar
+        let taxaIva = prezo * iva / 100;
+
+        // Devolve o prezo total co imposto incluído
+        return prezo + taxaIva;
+      }
+
+      let prezoProduto = 100;
+      let iva = 21;
+
+      // Chamando á función e amosando o prezo total
+      console.log(calcularPrezoConIva(prezoProduto, iva));
+    </pre>
+
+    <h4>Exercicio 3 - Declarar variables e constantes</h4>
+    <p>
+      Declara variables e constantes cos nomes correctos e dale un valor
+      adecuado.
+    </p>
+    <ol>
+      <li>Declara unha constante chamada pi co valor 3.1416.</li>
+      <li>Declara unha variable chamada idade co valor 30.</li>
+      <li>Declara unha variable chamada nomeCompleto co valor “Luís Gómez”.</li>
+    </ol>
+
+    <h4>Exercicio 4: Reasignación de Variables e uso de Constantes</h4>
+    <p>
+      Completa o seguinte código onde se debe calcular a área dun círculo e logo
+      modificar a súa cor.
+    </p>
+    <ol>
+      <li>Declara a constante pi co valor 3.1416.</li>
+      <li>Declara unha variable chamada radio e inicialízaa cun valor de 5.</li>
+      <li>Calcula a área do círculo usando a fórmula area = pi * radio^2</li>
+      <li>Declara unha variable corCírculo e asigna o valor “vermello”.</li>
+      <li>Cambia o valor de corCírculo a “azul”.</li>
+      <li>Declara a constante número aureo co valor 1.618033</li>
+    </ol>
+  </body>
 </html>
