@@ -223,3 +223,83 @@ console.log(`8: a <= b = ${a <= b}`); // true porque a ten o mesmo valor que b.
 // Sempre que se opera con variables, ainda que non sexan o mesmo tipo, JS fai unha conversión automática a Number sempre que pode ou a outro tipo de dato -----Revisar docs Cristina
 
 console.log(".......PARTE 2...........");
+let x = 10,
+  y = 3;
+
+console.log(`Resultado da suma entre x e y: ${x + y}`);
+console.log(`Resultado da resta entre x e y: ${x - y}`);
+console.log(`Resultado da multiplicación entre x e y: ${x * y}`);
+console.log(`Resultado da división entre x e y: ${x / y}`);
+console.log(`Resultado do resto da división de x entre y: ${x % y}`);
+
+console.log(`Icremento de 1 en x: ${(x += 1)}`);
+console.log(x);
+
+console.log(`Decremento de 1 en x: ${(x -= 1)}`);
+console.log(x);
+// Tamén se pode incrementar ou decrementar con x++ ou x--
+
+console.log(
+  `Uso de operadores unarios para amosar o valor de x como número e o seu oposto: ${+x} / ${-x}`
+);
+
+console.log(".......PARTE 3...........");
+let a3 = 10,
+  b3 = 5;
+
+// Asigna o valor de b a a:
+a3 = b3;
+console.log(`Asignación: ${a3}`); //5
+
+// Suma b a a usando o operador +=
+a3 += b3;
+console.log(`Suma e asignación: ${a3}`); //10
+
+// Resta b de a usando -=
+a3 -= b3;
+console.log(`Resta e asignación: ${a3}`); //5
+
+// Multiplica a por b usando *=
+a3 *= b3;
+console.log(`Multiplicación e asignación: ${a3}`); //25
+
+// Divide a por b usando /=
+a3 /= b3;
+console.log(`División e asignación: ${a3}`); //5
+
+// Obten o módulo de a e b con %=
+a3 %= b3;
+console.log(`Módulo e asignación: ${a3}`);
+
+// Desplaza a 1 bit á esquerda con <<=
+a3 <<= 1;
+console.log(`Desprazamento de 1 bit á esquerda: ${a3}`);
+
+// Desplaza a 1 bit á dereita con >>=
+a3 >>= 1;
+console.log(`Desplazamento á dereita de 1 bit: ${a3}`);
+
+// Desplaza a 1 bit á dereita sen signo con >>>=
+a3 >>>= 1;
+console.log(`Desplazamento á dereita de 1 bit sen signo: ${a3}`);
+
+// Aplica o operador AND bit a bit con &=
+a3 = 10; // Reseteamos a ó seu valor orixinal para poder obter os resultados adecuados nas operacións lóxicas
+
+a3 &= b3;
+console.log(`AND bit a bit: ${a3}`); //0
+
+// OR bit a bit
+a3 = 10;
+a3 |= b3;
+console.log(`OR bit a bit: ${a3}`); //15
+
+// XOR bit a bit
+a3 = 10;
+a3 ^= b3;
+console.log(`XOR bit a bit: ${a3}`); //15
+
+// Crea un array e asigna a ao primeiro posto do array, cal é o valor do primeiro elemento do array?
+let arr = [];
+arr[0] = a3;
+console.log(`Valor do primeiro elemento do array: ${arr[0]}`);
