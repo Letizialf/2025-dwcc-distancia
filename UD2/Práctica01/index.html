@@ -5,72 +5,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unidade_02-Practica01</title>
     <script src="practica02.js"></script>
+    <style>
+      h3 {
+        color: red;
+      }
+      .aviso {
+        background-color: chartreuse;
+      }
+    </style>
   </head>
   <body>
     <h3>Inspecciona para ver os exercicios resoltos</h3>
+    <h4 class="aviso">
+      Documento sen todos os enunciados para agilizar proceso
+    </h4>
 
-    <h4>Exercicio 1 - Engadir Comentarios</h4>
-    <p>
-      Engade os comentarios necesarios para que alguén sen coñecemento previo
-      poida entender o código.
-    </p>
-    <pre>
-      // Escribe os comentarios explicativos aquí 
-      let nome = "María"; 
-      let idade = 25; 
-      function presentarUsuario(nome, idade) { 
-        return nome + " ten " + idade +" anos."; 
-      } 
-      console.log(presentarUsuario(nome, idade))
-    </pre>
+    <div class="exercicio1">
+      <h4>Exercicio 1 - Engadir Comentarios</h4>
+      <p>
+        Engade os comentarios necesarios para que alguén sen coñecemento previo
+        poida entender o código.
+      </p>
+      <pre>
+        // Escribe os comentarios explicativos aquí 
+        let nome = "María"; 
+        let idade = 25; 
+        function presentarUsuario(nome, idade) { 
+          return nome + " ten " + idade +" anos."; 
+        } 
+        console.log(presentarUsuario(nome, idade))
+      </pre>
+    </div>
 
-    <h4>Exercicio 2 - Engadir comentarios nunha función</h4>
-    <p>
-      Engade os comentarios necesarios para que alguén sen coñecemento previo
-      poida entender o código
-    </p>
+    <div class="exercicio2">
+      <h4>Exercicio 2 - Engadir comentarios nunha función</h4>
+      <p>
+        Engade os comentarios necesarios para que alguén sen coñecemento previo
+        poida entender o código
+      </p>
 
-    <pre>
-      // Definir unha función que calcula o prezo total incluíndo impostos
+      <pre>
+        // Definir unha función que calcula o prezo total incluíndo impostos
+          
+        function calcularPrezoConIva(prezo, iva) {
+          // Calcula o imposto a aplicar
+          let taxaIva = prezo * iva / 100;
+  
+          // Devolve o prezo total co imposto incluído
+          return prezo + taxaIva;
+        }
+  
+        let prezoProduto = 100;
+        let iva = 21;
+  
+        // Chamando á función e amosando o prezo total
+        console.log(calcularPrezoConIva(prezoProduto, iva));
+      </pre>
+    </div>
+
+    <div class="exercicio3">
+      <h4>Exercicio 3 - Declarar variables e constantes</h4>
+      <p>
+        Declara variables e constantes cos nomes correctos e dale un valor
+        adecuado.
+      </p>
+      <ol>
+        <li>Declara unha constante chamada pi co valor 3.1416.</li>
+        <li>Declara unha variable chamada idade co valor 30.</li>
+        <li>
+          Declara unha variable chamada nomeCompleto co valor “Luís Gómez”.
+        </li>
+      </ol>
+    </div>
+
+    <div class="exercicio4">
+      <h4>Exercicio 4: Reasignación de Variables e uso de Constantes</h4>
+      <p>
+        Completa o seguinte código onde se debe calcular a área dun círculo e
+        logo modificar a súa cor.
+      </p>
+      <ol>
+        <li>Declara a constante pi co valor 3.1416.</li>
+        <li>
+          Declara unha variable chamada radio e inicialízaa cun valor de 5.
+        </li>
+        <li>Calcula a área do círculo usando a fórmula area = pi * radio^2</li>
+        <li>Declara unha variable corCírculo e asigna o valor “vermello”.</li>
+        <li>Cambia o valor de corCírculo a “azul”.</li>
+        <li>Declara a constante número aureo co valor 1.618033</li>
+      </ol>
+    </div>
+
+    <div class="exercicio5">
+      <h4>Exercicio5: Evitar reasignación innecesaria</h4>
+      <p>
+        Refactoriza o seguinte código para que non se reutilicen variables
+        innecesariamente e non se cometan erros de reasignación.
+      </p>
+      <pre>
+        var prezoProduto = 50;
+        var desconto = 10;
+        var prezoFinal = prezoProduto - desconto;
+
+        var prezoProduto = 100; // Isto non debería ser permitido, refactorizar para evitar isto
+        var prezoFinal = prezoProduto - desconto; // Usar novas variables ou corrixir a lóxica
+
+        console.log("O prezo final é: " + prezoFinal);
+      </pre>
+    </div>
+    <div class="exercicio6">
+      <h4>Exercicio 6: Refactorizar o código</h4>
+      <p>
+        Refactoriza o seguinte código para mellorar o seu deseño. Debes seguir
+        as boas prácticas:
+      </p>
+      <ul>
+        <li>
+          Usa const sempre que unha variable non se volva a asignar a un novo
+          valor.
+        </li>
+        <li>Evita declaracións repetidas de variables.</li>
+        <li>
+          Simplifica a lóxica para que o código sexa máis limpo e lexible.
+        </li>
+        <li>
+          Engade comentarios onde sexa necesario para explicar calquera cambio
+          importante.
+        </li>
+      </ul>
+      <pre>
+        // Código orixinal
+        var usuario = "Manuel";
+        var desconto = 0;
+        var prezoProduto = 200;
+        var cantidade = 3;
+
+        if (cantidade > 5) {
+          desconto = 10;
+        } else if (cantidade > 10) {
+          desconto = 20;
+        }
+
+        var prezoFinal = prezoProduto * cantidade;
+        prezoFinal = prezoFinal - (prezoFinal * desconto /100);
+
+        var usuario = "Manuel García"; //Reasignación innecesaria
         
-      function calcularPrezoConIva(prezo, iva) {
-        // Calcula o imposto a aplicar
-        let taxaIva = prezo * iva / 100;
+        console.log("O usuario " + usuario + " debe pagar " + prezoFinal + " euros.");
+      </pre>
+    </div>
 
-        // Devolve o prezo total co imposto incluído
-        return prezo + taxaIva;
-      }
+    <div class="exercicio7">
+      <h4>Exercicio 7: Tipos de datos</h4>
+      <p>
+        Declara diferentes variables de varios tipos de datos: cadeas de texto,
+        números e booleanos.
+      </p>
 
-      let prezoProduto = 100;
-      let iva = 21;
+      <ol>
+        <li>Nome dunha persoa</li>
+        <li>Apelido dunha persoa</li>
+        <li>Nome dun país</li>
+        <li>Capital dun país</li>
+        <li>Idade en anos</li>
+        <li>Indicar se a persoa está casada</li>
+        <li>Gravidade da Terra en m/s2</li>
+        <li>Punto de ebullición da auga en cº</li>
+        <li>Valor de PI</li>
+      </ol>
+    </div>
 
-      // Chamando á función e amosando o prezo total
-      console.log(calcularPrezoConIva(prezoProduto, iva));
-    </pre>
+    <div class="exercicio8">
+      <h4>Exercicio 8: Operadores en JS</h4>
+      <p>
+        Dado os seguintes valores a = 10, b = "10", c = 15 e d = 20, responde ás
+        seguintes preguntas usando os operadores de comparación.
+      </p>
 
-    <h4>Exercicio 3 - Declarar variables e constantes</h4>
-    <p>
-      Declara variables e constantes cos nomes correctos e dale un valor
-      adecuado.
-    </p>
-    <ol>
-      <li>Declara unha constante chamada pi co valor 3.1416.</li>
-      <li>Declara unha variable chamada idade co valor 30.</li>
-      <li>Declara unha variable chamada nomeCompleto co valor “Luís Gómez”.</li>
-    </ol>
-
-    <h4>Exercicio 4: Reasignación de Variables e uso de Constantes</h4>
-    <p>
-      Completa o seguinte código onde se debe calcular a área dun círculo e logo
-      modificar a súa cor.
-    </p>
-    <ol>
-      <li>Declara a constante pi co valor 3.1416.</li>
-      <li>Declara unha variable chamada radio e inicialízaa cun valor de 5.</li>
-      <li>Calcula a área do círculo usando a fórmula area = pi * radio^2</li>
-      <li>Declara unha variable corCírculo e asigna o valor “vermello”.</li>
-      <li>Cambia o valor de corCírculo a “azul”.</li>
-      <li>Declara a constante número aureo co valor 1.618033</li>
-    </ol>
+      <ol>
+        Parte 1:
+        <li>Comproba se a e b son iguais en valor usando o operador ==</li>
+        <li>Comproba se a e c son diferentes en valor usando o operador !=</li>
+        <li>
+          Comproba se a e b son iguais tanto en valor como en tipo usando o
+          operador ===
+        </li>
+        <li>
+          Comproba se a e b son diferentes en valor ou tipo usando o operador
+          !==
+        </li>
+        <li>Comproba se d é maior que c usando o operador ></li>
+        <li>Comproba se d é maior ou igual que c usando o operador >=</li>
+        <li>Comproba se a é menor que c usando o operador <</li>
+        <li>Comproba se a é menor ou igual que b usando o operador <=</li>
+        <li>
+          Para cada expresión, imprime o resultado nun console.log() para ver o
+          resultado e comprobar se as comparacións son correctas
+        </li>
+      </ol>
+      <ol>
+        Parte 2
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+    </div>
   </body>
 </html>

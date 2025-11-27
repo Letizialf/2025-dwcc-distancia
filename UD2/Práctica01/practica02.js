@@ -117,6 +117,7 @@ console.log("---------------------------------");
 console.log(
   "Exercicio 5: Refactoriza o seguinte código para que non se reutilicen variables innecesariamente e non se cometan erros de reasignación."
 );
+/** SOLUCIÓN 1 */
 
 // Para evitar erros imos a converter estas variables en constantes, para que non se poidan modificar os seus valores
 const prezoProduto = 50;
@@ -130,6 +131,8 @@ var prezoProduto2 = 100;
 var prezoFinal2 = prezoProduto2 - desconto; // Usar novas variables ou corrixir a lóxica
 console.log(`O prezo final é: ${prezoFinal2}`);
 
+/** SOLUCIÓN 2 */
+
 // Tamén se podería converter o cálculo nunha función, que podemos chamar pasando como parámetros as variables que nós queiramos e así evitar calcular o mesmo 2 veces
 
 function calculoPrezoFinal(prezo, desconto) {
@@ -139,3 +142,84 @@ function calculoPrezoFinal(prezo, desconto) {
 
 console.log(calculoPrezoFinal(prezoProduto, desconto));
 console.log(calculoPrezoFinal(prezoProduto2, desconto));
+
+console.log("----------------------------------");
+
+// EXERCICIO 6--------------------------------------
+console.log("Exercicio 6: Refactorizar código");
+
+// Declaramos as variables con let e convertemos en constante o nome, xa que non se lle pode reasignar outro valor
+const usuario = "Manuel García";
+let prezoProdutoInicial = 200;
+let cantidade = 3;
+// Esta variable declárase con valor 0 porque se reasignará un valor dependendo da cantidade de produtos que se leven, polo que ten que estar inicializada para logo poder reasignarlle outros valores.
+let descontoAplicar = 0;
+
+// Creamos un bucle para determinar o desconto que se aplicará ao produto en función da cantidade que se compre.
+if (cantidade > 5) {
+  descontoAplicar = 10;
+} else if (cantidade > 10) {
+  descontoAplicar = 20;
+}
+
+// Agora calculamos o prezo final directamente no valor da variable
+let prezoProdutoFinal =
+  prezoProdutoInicial * cantidade * (1 - descontoAplicar / 100);
+
+// Por último temos que imprimir en consola os datos acadados e, para facilitar e axilizar a escritura, usamos ``
+console.log(`O usuario ${usuario} debe pagar ${prezoProdutoFinal} euros.`);
+
+console.log("-----------------------------------");
+
+// EXERCICIO 7 -----------------------------------
+console.log("Exercicio 7: Tipos de datos");
+
+let nomeU = "Laura";
+console.log(`1:Nome - ${nomeU} ---- ${typeof nomeU}`);
+
+let apelidoU = "Lopez";
+console.log(`2:Apelido - ${apelidoU} ---- ${typeof apelidoU}`);
+
+let pais = "España";
+console.log(`3:Pais - ${pais} ---- ${typeof pais}`);
+
+let capital = "Madrid";
+console.log(`4:Capital - ${capital} ---- ${typeof capital}`);
+
+let idadeU = 20;
+console.log(`5:Idade - ${idadeU} ---- ${typeof idadeU}`);
+
+let casada = true;
+console.log(`6:Casada? - ${casada} ---- ${typeof casada}`);
+
+const g = 9.8;
+console.log(`7:Gravedad Terra - ${g}m/s2 ---- ${typeof g}`);
+
+const ebullicion = 100;
+console.log(`8:Ebullicion - ${ebullicion}Cº ---- ${typeof ebullicion}`);
+
+const PI = 3.14;
+console.log(`9:Pi - ${PI} ---- ${typeof PI}`);
+
+console.log("------------------------------------");
+
+// EXERCICIO 8 ------------------------------------
+console.log("Exercicio 8: Operadores en JS");
+console.log("...........PARTE 1...............");
+
+let a = 10,
+  b = "10",
+  c = 15,
+  d = 20;
+
+console.log(`1: a == b > ${a == b}`); // true porque teñen o mesmo valor (10)
+console.log(`2: a != c > ${a != c}`); // true porque son diferentes en valor
+console.log(`3: a === b > ${a === b}`); // false porque ainda que teñen o mesmo valor non son do mesmo tipo (a = number, b = String)
+console.log(`4: a !== b > ${a !== b}`); // true porque non teñen o mesmo tipo
+console.log(`5: d > c = ${d > c}`); // true porque 20 > 15
+console.log(`6: d >= c = ${d >= c}`); // true porque sigue sendo maior
+console.log(`7: a < c = ${a < c}`); // true porque 10 < 15
+console.log(`8: a <= b = ${a <= b}`); // true porque a ten o mesmo valor que b.
+// Sempre que se opera con variables, ainda que non sexan o mesmo tipo, JS fai unha conversión automática a Number sempre que pode ou a outro tipo de dato -----Revisar docs Cristina
+
+console.log(".......PARTE 2...........");
