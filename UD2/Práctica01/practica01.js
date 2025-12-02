@@ -303,3 +303,21 @@ console.log(`XOR bit a bit: ${a3}`); //15
 let arr = [];
 arr[0] = a3;
 console.log(`Valor do primeiro elemento do array: ${arr[0]}`);
+
+console.log(".......PARTE 4...........");
+
+let p = true;
+let q = false;
+let x4 = 5; // 0101
+let y4 = 3; // 0011
+
+console.log(`1. AND: ${p && q}`); //False porque unha é verdadeira e a outra falsa
+console.log(`2. OR: ${p || q}`); //True porque unha das dúas é verdadeira
+console.log(`3. !p: ${!p}`); // False
+console.log(`4. AND bit a bit: ${x4 & y4}`); // 0001 = 1
+console.log(`5. OR bit a bit: ${x4 | y4}`); // 0111 = 7
+console.log(`6. XOR bit a bit: ${x4 ^ y4}`); // 0110 = 6
+console.log(`7. Negación bit a bit sobre x: ${~x4}`); // -6 --> -(x4 + 1)
+console.log(`8. Deslocación de x4 á esquerda, 1 bit: ${x4 << 1}`); //0101 << 1010 = 10
+console.log(`9. Deslocación de x4 á dereita, 1 bit: ${x4 >> 1}`); //0101 >> 0010 = 2
+console.log(`10. Deslocación de 1 bit á dereita sen signo: ${x4 >>> 1}`); //0010 = 2
