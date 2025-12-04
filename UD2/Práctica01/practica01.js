@@ -321,3 +321,158 @@ console.log(`7. Negación bit a bit sobre x: ${~x4}`); // -6 --> -(x4 + 1)
 console.log(`8. Deslocación de x4 á esquerda, 1 bit: ${x4 << 1}`); //0101 << 1010 = 10
 console.log(`9. Deslocación de x4 á dereita, 1 bit: ${x4 >> 1}`); //0101 >> 0010 = 2
 console.log(`10. Deslocación de 1 bit á dereita sen signo: ${x4 >>> 1}`); //0010 = 2
+
+console.log(".......PARTE 5...........");
+let num = 42;
+console.log(`${num} é de tipo: ${typeof num}`);
+
+let texto = "Hola Mundo";
+console.log(`${texto} é de tipo: ${typeof texto}`);
+
+let booleano = true;
+console.log(`${booleano} é de tipo: ${typeof booleano}`);
+
+let nulo = null;
+console.log(`${nulo} é de tipo: ${typeof nulo}`);
+
+let indefinido;
+console.log(`${indefinido} é de tipo: ${typeof indefinido}`);
+
+let simbolo = Symbol("simbolo");
+console.log(simbolo, typeof simbolo);
+
+let obxeto = {
+  clave: "valor",
+  nome: "Lola",
+};
+console.log(`${obxeto} é de tipo: ${typeof obxeto}`);
+
+let array = [1, 2, 3];
+console.log(`${array} é de tipo: ${typeof array}`);
+
+function miFuncion() {
+  return "Funcion";
+}
+console.log(`${miFuncion} é de tipo: ${typeof miFuncion}`);
+
+console.log(".......PARTE 6...........");
+console.log(`1.Desestructuración de obxetos: array`);
+
+const numeros = [1, 2, 3];
+const [primeiro, segundo, terceiro] = numeros;
+console.log(
+  ` Primeiro: ${primeiro}, segundo: ${segundo}, terceiro: ${terceiro}`
+);
+
+console.log(`2.Desestructuración de obxetos: obxeto simple`);
+const persona = {
+  name: "Maria",
+  age: 30,
+  city: "Madrid",
+};
+
+let { name, age } = persona;
+console.log(`Nome: ${name}, idade: ${age}`);
+
+console.log(`3.Desestructuración de obxetos: obxeto anidado`);
+const usuario8 = {
+  nomeUsuario: "Carlos",
+  contacto: {
+    mail: "carlos@gmail.com",
+    telefono: "123456789",
+  },
+};
+
+let {
+  nomeUsuario,
+  contacto: { mail },
+} = usuario8;
+
+console.log(`NomeUsuario: ${nomeUsuario}, Contacto: ${mail}`);
+
+console.log(".......PARTE 7...........");
+console.log("1. Par ou impar?");
+let numero = 7;
+let resultado = numero % 2 === 0 ? "Par" : "Impar";
+console.log(`O número ${numero} é ${resultado}`);
+
+console.log("2. Maior de idade?");
+let idade8 = 18;
+let resultado2 = idade8 >= 18 ? "Maior de idade" : "Menor de idade";
+console.log(`Se ten ${idade8} anos é: ${resultado2}`);
+
+console.log("3. Cualificación");
+let puntuacion = 98;
+let resultado3 =
+  puntuacion >= 90
+    ? "A"
+    : puntuacion >= 80
+    ? "B"
+    : puntuacion >= 70
+    ? "C"
+    : "D";
+
+console.log(`O resultado de ${puntuacion} é ${resultado3}`);
+
+console.log("4. Dispoñible?");
+let stock = 5;
+let disponibilidad = stock > 0 ? "Disponible" : "No Disponible";
+console.log(`O producto está: ${disponibilidad}`);
+
+console.log("5. Equilatero, isosceles ou escaleno?");
+let lado1 = 5,
+  lado2 = 5,
+  lado3 = 3;
+
+let tipoTriangulo =
+  lado1 == lado2 && lado2 == lado3
+    ? "Equilátero"
+    : lado1 == lado2 || lado1 == lado3 || lado2 == lado3
+    ? "Isósceles"
+    : "Escaleno";
+
+console.log(
+  `O triángulo cuyos lados son:\n Lado1 = ${lado1}, Lado2 = ${lado2}, Lado3 = ${lado3} é: ${tipoTriangulo}`
+);
+
+console.log("------------------------------------");
+
+// EXERCICIO 9 ------------------------------------
+console.log("Exercicio 9: Exercicios básicos");
+console.log("Suposto 1: ");
+console.log("1.1: Crea un bucle for que sume todos os numeros do 1 ao 100");
+let suma = 0;
+for (let i = 0; i <= 100; i++) {
+  suma += i;
+}
+console.log(`O resultado de sumar os numeros do 1 ao 100 é: ${suma}`);
+
+console.log(
+  "1.2: Usa while para contar do 1 ao 10, imprime cada númro por consola"
+);
+let contador = 0;
+while (contador <= 10) {
+  console.log(contador);
+  contador++;
+}
+
+console.log(
+  "1.3: Bucle do...while que imprima todos os numeros pares do 2 ao 20"
+);
+let numeroPar = 2;
+do {
+  console.log(numeroPar);
+  numeroPar += 2;
+} while (numeroPar <= 20);
+
+console.log(
+  "1.4: Crea un programa que pida un número e use un if...else para comprobar se é positivo, negativo ou 0"
+);
+let numeroPedido = prompt("Introduce un número: ");
+if (numeroPedido > 0) {
+  console.log("O número introducido é positivo");
+} else if (numeroPedido < 0) {
+  console.log("O número introducido é negativo");
+} else {
+  console.log("O número introducido é 0");
+}
