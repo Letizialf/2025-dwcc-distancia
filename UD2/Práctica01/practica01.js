@@ -468,7 +468,7 @@ do {
 console.log(
   "1.4: Crea un programa que pida un número e use un if...else para comprobar se é positivo, negativo ou 0"
 );
-let numeroPedido = prompt("Introduce un número: ");
+let numeroPedido = prompt("Introduce un número: "); //Pide o número ao cargar a páxina
 if (numeroPedido > 0) {
   console.log("O número introducido é positivo");
 } else if (numeroPedido < 0) {
@@ -476,3 +476,35 @@ if (numeroPedido > 0) {
 } else {
   console.log("O número introducido é 0");
 }
+
+console.log(
+  "1.5: Crea un bucle for que imprima a tabla de multiplicar do 5 (do 1 ao 10)"
+);
+
+let multiplicando = 5;
+for (let i = 1; i <= 10; i++) {
+  console.log(`${multiplicando} x ${i} = ${multiplicando * i}`);
+}
+
+console.log(
+  "1.6: Crea un array de nomes e usa un bucle for...of para imprimir cada nome na consola"
+);
+
+let arrayNomes = ["Ana", "Carlos", "Marta", "Luis"];
+for (const nome of arrayNomes) {
+  console.log(nome);
+}
+
+console.log(
+  "Suposto 2: Crea unha función que calcule o factorial de un número usando un bucle for"
+);
+
+function factorial(n) {
+  let resultado = 1;
+  for (let i = 1; i <= n; i++) {
+    resultado = resultado * i;
+  }
+  return resultado;
+}
+
+console.log(factorial(5));
