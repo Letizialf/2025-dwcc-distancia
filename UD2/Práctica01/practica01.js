@@ -466,16 +466,16 @@ do {
 } while (numeroPar <= 20);
 
 console.log(
-  "1.4: Crea un programa que pida un número e use un if...else para comprobar se é positivo, negativo ou 0"
+  "1.4: Crea un programa que pida un número e use un if...else para comprobar se é positivo, negativo ou 0. COMENTADO NO CÓDIGO"
 );
-let numeroPedido = prompt("Introduce un número: "); //Pide o número ao cargar a páxina
-if (numeroPedido > 0) {
-  console.log("O número introducido é positivo");
-} else if (numeroPedido < 0) {
-  console.log("O número introducido é negativo");
-} else {
-  console.log("O número introducido é 0");
-}
+// let numeroPedido = prompt("Introduce un número: "); //Pide o número ao cargar a páxina
+// if (numeroPedido > 0) {
+//   console.log("O número introducido é positivo");
+// } else if (numeroPedido < 0) {
+//   console.log("O número introducido é negativo");
+// } else {
+//   console.log("O número introducido é 0");
+// }
 
 console.log(
   "1.5: Crea un bucle for que imprima a tabla de multiplicar do 5 (do 1 ao 10)"
@@ -508,3 +508,163 @@ function factorial(n) {
 }
 
 console.log(factorial(5));
+
+console.log(
+  "Suposto 3: Crea unha función que retorne os primeiros n números da sucesión de fibonacci"
+);
+
+function fibonacci(n) {
+  let secuencia = [0, 1];
+  for (let i = 2; i < n; i++) {
+    secuencia[i] = secuencia[i - 1] + secuencia[i - 2]; // O próximo número da secuencia ten que ser a suma dos dous números anteriores a i --> i-1 = inmediatamente anterior; i-2 = segundo número anterior a i
+  }
+  // Para que devolva a secuencia independentemente do número que represente n hai que facer un slice de 0 a n
+  return secuencia.slice(0, n);
+}
+
+console.log(fibonacci(8));
+
+console.log(
+  "Suposto 4: Crea un programa que busque un elemento específico nun array.\nS o elemento existe retorna a posición, senon imprime un mensaje que indique que non se atopou"
+);
+
+let arrayBuscar = [10, 20, 30, 40, 50];
+let buscar = 30;
+let atopado = false;
+
+for (let i = 0; i < arrayBuscar.length; i++) {
+  if (arrayBuscar[i] === buscar) {
+    atopado = true;
+    console.log(`Elemento encontrado na posición: ${i}`);
+    break;
+  }
+}
+if (!atopado) {
+  console.log("O elemento que se busca non se atopou");
+}
+
+console.log(
+  "Suposto 5: Escribe un programa que conte o número de vogais dunha cadea dada"
+);
+
+let frase = "Supercalifragilistico espialidoso"; //Frase a testear
+let contadorVocales = 0; //Contador para contar as veces que aparece unha vocal
+let vocales = "aeiouAEIOU"; // String con todas as vocales para comprobar se a frase as incluye
+
+// Facemos un bucle que recorra a frase letra por letra
+for (let i = 0; i < frase.length; i++) {
+  // Para cada letra, comprobamos se está incluída no String de vocales previamente declarado
+  if (vocales.includes(frase[i])) {
+    // Se a letra está no string é unha vocal, polo que aumentaremos o contados +1
+    contadorVocales++;
+  }
+}
+
+console.log(`A frase "${frase}" ten ${contadorVocales} vocales`);
+
+console.log(
+  "Suposto 6: Crea un programa que imprima unha pirámide de asteriscos, a altura debe ser dada por un número n."
+);
+
+let altura = 6;
+
+// Facemos un bucle que recorra todos os números dende o 0 ata a altura que nós elexiramos
+// Cada vez que se itere sobre 'i' será unha fila div¡ferente, dende a punta ata a base da pirámide
+for (let i = 1; i <= altura; i++) {
+  let espacios = " ".repeat(altura - i); // Determinamos que o número de espazos de cada fila será o valor da altura menos o valor de i en esa iteración --> Na primeira iteración, neste caso haberá 5 espazos (6 - 1)
+  let asteriscos = "*".repeat(2 * i - 1); // Determinamos que a cantidade de asteriscos de cada fila será o valor de i multiplicado por 2 menos 1 (para que na primeira fila haxa 1 asterisco) ---> Na primeira iteración, neste caso haberá un asterisco (2 * 1 - 1)
+  console.log(espacios + asteriscos); //Logo concatenamos os espazos cos asteriscos
+}
+
+console.log(
+  "Suposto 7: Crea unha función que imprima unha pirámide de números, onde a altura da pirámide é dada por n"
+);
+
+function piramideNumeros(n) {
+  // Recorremos a altura de punta a base para poder facer a pirámide
+  for (let i = 1; i <= n; i++) {
+    let espacios = " ".repeat(n - i); // Determinamos que o número de espazos de cada fila será o valor da altura menos o valor de i en esa iteración
+    let numeros = ""; // Declaramos un string vacio que imos ir rellenando pouco a pouco
+
+    // En cada iteracion, temos que imprimir o numero correspondente a esa liña, é dicir, o valor da altura en esa liña:
+    // 1
+    // 2
+    // 3
+    // 4
+    // .
+    // .
+    // .
+
+    // Pero tamén temos que imprimir os numeros anteriores pola esquerda, e ir reducindo pola dereita para que quede así:
+    //   1
+    //  121
+    // 12321
+    //1234321
+
+    // Con este for o que facemos é, pola esquerda de i, imprimir os numeros anteriores
+    for (let j = 1; j <= i; j++) {
+      numeros += j;
+    }
+
+    // E con este outro for, imprimimos os números pola dereita, para terminar de formar a pirámide
+    for (let j = i - 1; j >= 1; j--) {
+      numeros += j;
+    }
+
+    // Logo de todo, concatenamos os espazos determinados antes de todo co string de números correspondente en cada iteración
+    console.log(espacios + numeros);
+  }
+}
+
+piramideNumeros(7);
+
+console.log(
+  "Suposto 8: Crea un programa para determinar se duas palabras son anagramas"
+);
+
+function sonAnagramas(str1, str2) {
+  const normalizar = (str) => str.toLowerCase().split("").sort().join();
+  if (normalizar(str1) === normalizar(str2)) {
+    console.log(`${str1} e ${str2} son anagramas`);
+  }
+}
+
+sonAnagramas("amor", "Roma");
+
+console.log(
+  "Suposto 9: Escribe unha función que determine se un número é un número de Armstrong"
+);
+
+// Un número de Armstrong é aquel que é igual á suma dos seus díxitos potenciados polo numero de estes, é dicir: 153 = 1³ + 5³ + 3³
+
+function esNumeroArmstrong(numero) {
+  let cifras = numero.toString();
+  let n = cifras.length;
+  let suma = 0;
+
+  for (const cifra of cifras) {
+    suma += Math.pow(Number(cifra), n);
+  }
+
+  if (suma === numero) {
+    console.log(`El número ${numero} es un número de Armstrong`);
+  } else {
+    console.log(
+      "El número introducido no cumple con los requisitos para ser un número de Armstrong"
+    );
+  }
+}
+
+esNumeroArmstrong(153);
+
+console.log(
+  "Suposto 10: Escribe una función que gire un array x posicións á dereita"
+);
+
+function girarArray(arr, x) {
+  // Rompemos o array por -x porque desta maneira empezará a contar pola dereita en vez de pola esquerda
+  // Logo concatenamos o cacho restante do array
+  return arr.slice(-x).concat(arr.slice(0, arr.length - x));
+}
+
+console.log(girarArray([1, 2, 3, 4, 5], 2));
