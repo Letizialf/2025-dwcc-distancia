@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grados Celsius e Kelvin</title>
+  </head>
+  <body>
+    <h2>Calcular grados Kelvin a partir de Celsius</h2>
+    <script>
+      function converter(celsius) {
+        let kelvin = celsius + 273.15;
+        return kelvin;
+      }
+
+      function mostrarResultado(celsius, kelvin) {
+        document.write(`Temperatura en Celsius: ${celsius} Cº </br>`);
+        document.write(
+          `Temperatura en Kelvin: ${kelvin.toFixed(2)} graos Kelvin </br>`
+        );
+      }
+
+      function principal() {
+        var celsius = parseFloat(
+          prompt("Introduce a temperatura en graos Celsius:")
+        );
+        var kelvin = converter(celsius);
+        mostrarResultado(celsius, kelvin);
+      }
+
+      principal();
+    </script>
+  </body>
+</html>

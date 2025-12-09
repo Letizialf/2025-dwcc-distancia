@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videoxogo</title>
+  </head>
+  <body>
+    <script>
+      function preguntaNumero(pregunta) {
+        while (true) {
+          var valor = prompt(pregunta);
+          if (!isNaN(valor) && valor != "") {
+            return parseInt(valor);
+          }
+        }
+      }
+      function principal() {
+        //TODO: Código a realizar.
+
+        // Os puntos calcúlanse da seguinte maneira:
+        // puntos = (100 - saidasDePista) / golpes*adiantamentos
+
+        let saidas = preguntaNumero("Cantas veces te saíches da pista?");
+        // console.log(saidas);
+
+        let golpes = preguntaNumero(
+          "Cantas veces chocaches con outro vehículo?"
+        );
+        // console.log(golpes);
+
+        let adiantamentos = preguntaNumero("Cantas veces che adiantaron?");
+        // console.log(adiantamentos);
+
+        puntos = (100 - saidas) / (golpes * adiantamentos);
+        // console.log(puntos);
+
+        alert(`O teu total de puntos é de: ${puntos}`);
+      }
+      principal();
+    </script>
+  </body>
+</html>

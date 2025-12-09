@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Menor de Idade</title>
+  </head>
+  <body>
+    <script>
+      var idade = prompt("Cantos anos tes", 17);
+      //TODO: a solución
+      idade = parseFloat(idade);
+      function maiorDeIdade(idade) {
+        // Primeiro validamos que se introducira unha idade correcta, é dicir, un valor numérico non menor de 0
+        let idadeValidada = validarEntrada(idade);
+
+        // Logo facemos a comprobación para saber se é maior de idade ou non
+        if (idadeValidada >= 18) {
+          document.write("Eres maior de idade");
+        } else if (idadeValidada < 18) {
+          document.write("Eres menor de idade");
+        }
+      }
+
+      function validarEntrada(idade) {
+        while (isNaN(idade) || idade < 0) {
+          alert(
+            "A idade introducida non é válida, revisa o formato ou que sexa maior de 0"
+          );
+          idade = prompt("Cantos anos tes");
+        }
+        return idade;
+      }
+
+      maiorDeIdade(idade);
+    </script>
+  </body>
+</html>
