@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="gl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cronómetro de conta atrás</title>
+    <link rel="stylesheet" href="cronometro.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Cronómetro de conta atrás</h1>
+
+      <section class="config">
+        <label for="segundos">Duración (segundos)</label>
+        <input id="segundos" type="number" value="10" />
+      </section>
+
+      <section aria-labelledby="estadoLabel">
+        <h2 id="estadoLabel">Estado</h2>
+        <div class="tempo">Tempo: <span id="tempo">00:00</span></div>
+        <div id="mensaxes" aria-live="polite" role="status" class="mensaxes"></div>
+      </section>
+
+      <section class="controles">
+        <button id="btnStart">Iniciar</button>
+        <button id="btnStop">Parar</button>
+      </section>
+    </main>
+
+    <script src="cronometro.js" defer></script>
+  </body>
+</html>
