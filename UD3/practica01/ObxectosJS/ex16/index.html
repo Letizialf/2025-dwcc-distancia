@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculador de Períodos de Rego Automático</title>
+  </head>
+  <body>
+    <h1>Calculador de Períodos de Rego Automático</h1>
+    <p>
+      Baseado nas fases lunares, este sistema calcula a frecuencia de rego para
+      unha horta.
+    </p>
+    <button onclick="mostrarProximoRego()">Calcular próximo día de rego</button>
+    <p id="resultado"></p>
+    <script>
+      // Data de referencia para a última lúa nova
+      const dataReferencia = new Date("2024-01-11");
+      // Función para calcular o número de días pasados desde a última lúa nova
+      function diasDesdeLuaNova(dataActual) {
+        //TODO: Realizar
+        return null;
+      }
+      // Función para determinar a fase lunar en función do número de días desde a lúa nova
+      function faseLunar(dias) {
+        //TODO: A realizar.
+        return null;
+      }
+      // Función para determinar a frecuencia de rego en función da fase
+      lunar;
+      function frecuenciaRego(fase) {
+        //TODO: A realizar.
+      }
+      // Función para calcular a próxima data de rego en función do día actual e da frecuencia de rego
+      function proximoDiaRego(dataActual) {
+        //TODO: A realizar.
+        return {
+          fase: null,
+          proximaData: null,
+        };
+      }
+      // Función para mostrar o resultado na páxina web
+      function mostrarProximoRego() {
+        const dataActual = new Date();
+        const resultado = proximoDiaRego(dataActual);
+        document.getElementById(
+          "resultado"
+        ).innerHTML = `Fase lunar actual: ${resultado.fase} <br> Próximo rego
+      será o: ${resultado.proximaData}`;
+      }
+    </script>
+  </body>
+</html>
