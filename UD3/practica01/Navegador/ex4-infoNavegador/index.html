@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Información do Navegador</title>
+  </head>
+  <body>
+    <h1>Información simplificada do navegador</h1>
+    <p><b>Nome en código do navegador:</b> <span id="appCodeName"></span></p>
+    <p><b>Nome oficial do navegador:</b> <span id="appName"></span></p>
+    <p><b>Versión do navegador e sistema:</b> <span id="appVersion"></span></p>
+    <p><b>Idioma configurado:</b> <span id="language"></span></p>
+    <p><b>Plataforma do dispositivo:</b> <span id="platform"></span></p>
+    <p>
+      <b>Descrición completa do navegador:</b> <span id="userAgent"> </span>
+    </p>
+
+    <script>
+      let appCodeName = navigator.appCodeName;
+      let appName = navigator.appName;
+      let appVersion = navigator.appVersion;
+      let language = navigator.language;
+      let platform = navigator.platform;
+      let userAgent = navigator.userAgent;
+
+      //   Amosamos todo na páxina
+      document.getElementById("appCodeName").textContent = appCodeName;
+      document.getElementById("appName").textContent = appName;
+      document.getElementById("appVersion").textContent = appVersion;
+      document.getElementById("language").textContent = language;
+      document.getElementById("platform").textContent = platform;
+      document.getElementById("userAgent").textContent = userAgent;
+    </script>
+  </body>
+</html>
