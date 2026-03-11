@@ -153,3 +153,61 @@ const p1 = new Punto(0, 0);
 const p2 = new Punto(3, 4);
 
 console.log(Punto.dis(p1, p2)); // 5
+
+/** SUBCLASSES CON EXTENDS
+ * Cando extendemos unha clase quere decir que HEREDA de outra, por exemplo:
+ * Se temos unha clase Animal, as clases que extenderían serían Can, Gato, Cabalo...
+ */
+
+class Animal2 {
+  constructor(nome) {
+    this.nome = nome;
+  }
+
+  falar() {
+    console.log(`${this.nome} fai un ruido`);
+  }
+}
+
+class Can extends Animal2 {
+  falar() {
+    super.falar();
+    console.log(`${this.nome} ladra`);
+  }
+}
+
+class Gato extends Animal2 {
+  falar() {
+    super.falar();
+    console.log(`${this.nome} miaña`);
+  }
+}
+
+const cadelo = new Can("Laika");
+cadelo.falar();
+
+const micho = new Gato("Mix");
+micho.falar();
+
+/** MIX-INS
+ * Un mix-in ou mixin é un obxecto ou función que sirve para engadir métodos ou propiedades a unha clase ou obxecto.
+ *
+ * Creamos unha función que recibe unha clase Base.
+ * Esta función devolve outra clase que extende de esa clase Base e, á sua vez, incorpora os métodos engadidos polo mixin
+ *
+ */
+
+// Definimos un mixin, neste caso Volador (función frecha que convertirá Volador nunha clase anónima)
+// A función frecha asigna a Volador como clase anónima que extende dunha clase Base (que despois, ao chamar a esta función, terá que especificarse)
+const Volador = (Base) =>
+  class extends Base {
+    volar() {
+      console.log("Volando...");
+    }
+  };
+
+class Pajaro extends Volador(Animal2) {} // Aquí básicamente decimoslle que: A clase Pajaro extende a clase anónima creada coa función Volador, partindo de que a clase Base é Animal2
+
+const p = new Pajaro(); //Creamos unha instancia da clase Pajaro para ver se podemos aplicarlle a función volar() definida no mixin.
+
+p.volar(); //Comprobamos que, efectivamente, funciona
