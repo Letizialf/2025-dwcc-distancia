@@ -40,7 +40,7 @@ class Inventario {
 
   consultarStock(nomeProd) {
     const prodBuscado = this.productos.find((prod) => {
-      prod.nome === nomeProd;
+      return prod.nome === nomeProd;
     });
 
     if (prodBuscado) {
