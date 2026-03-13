@@ -27,5 +27,25 @@
  *          console.log('Ola, ' + nome);
  *      }
  *
- * -
+ * - DEFAULT EXPORT (Exportación por defecto): Permite exportar un único elemento como exportación principal do módulo.
+ *      //arquivo miModulo.js
+ *      export default function saudar(){
+ *          console.log('Ola Mundo');
+ *      }
+ * SOLO PODE HABER UN EXPORT DEFAULT NUN MÓDULO
+ * Para exportar un valor por defecto hai que facer:
+ *      import mod from 'mod'
+ *      export default mod
  */
+
+// IMPORTACIÓN DO MÓDULO myModule.js
+import { cube, foo, graph } from "myModule";
+
+graph.options = {
+  color: "blue",
+  thickness: "3px",
+};
+
+graph.draw();
+console.log(cube(3));
+console.log(foo);
