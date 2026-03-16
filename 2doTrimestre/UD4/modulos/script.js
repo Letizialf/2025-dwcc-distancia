@@ -39,7 +39,7 @@
  */
 
 // IMPORTACIÓN DO MÓDULO myModule.js
-import { cube, foo, graph } from "myModule";
+import { cube, foo, graph } from "./myModule.js";
 
 graph.options = {
   color: "blue",
