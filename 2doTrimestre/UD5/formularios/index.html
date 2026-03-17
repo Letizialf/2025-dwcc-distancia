@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <title>Formularios</title>
+  </head>
+  <body>
+    <h1>Exemplo de Formulario</h1>
+
+    <form
+      id="meuFormulario"
+      name="nomeFormulario"
+      action="/enviar"
+      method="POST"
+    >
+      <label for="nome">Nome: </label>
+      <input
+        type="text"
+        name="nome"
+        id="nome"
+        placeholder="Esccribe o teu nome"
+      />
+
+      <label for="idade">Idade: </label>
+      <input type="number" name="idade" id="idade" min="10" max="120" />
+
+      <button type="submit">Enviar</button>
+      <button type="reset">Restablecer</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UD 6</title>
+    <style>
+      input:invalid {
+        border-color: red;
+      }
+
+      input,
+      input:valid {
+        border-color: olivedrab;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Notificar salarios</h2>
+
+    <form method="post">
+      <div>
+        <label for="nome">Nome: </label>
+        <input
+          type="text"
+          id="nome"
+          name="name"
+          size="18"
+          required
+          pattern="[A-Za-z\s]{3,15}"
+        />
+        <span class="error" id="erronome"></span> <br /><br />
+
+        <label for="apelidos">Apelidos: </label>
+        <input
+          type="text"
+          id="apelidos"
+          name="apelidos"
+          size="18"
+          required
+          pattern="[A-Za-z\s]{4,15}"
+        />
+        <span class="error" id="erroapelidos"></span> <br /><br />
+
+        <label for="dias">Días traballados: </label>
+        <input type="text" id="dias" name="dias" size="18" min="0" max="31" />
+        <span class="error" id="errodias"></span> <br /><br />
+
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" size="18" />
+        <span class="error" id="erroemail"></span> <br /><br />
+      </div>
+      <div>
+        <button id="enviar">Enviar</button>
+      </div>
+    </form>
+
+    <script>
+      // Engade aquí as validacións en JavaScript
+
+      //   Engadimos o evento para que as validacións se executen unha vez se carga o contido
+      document.addEventListener("DOMContentLoaded", function () {
+        var nome = document.getElementById("nome");
+        nome.oninvalid = function (event) {
+          var mensaxe =
+            "O campo usuario adminte unha lonxitude minima de 3 maxina de 15";
+          event.target.setCustomValidity(mensaxe);
+          document.getElementById("erronome").innerHTML = mensaxe;
+          document.getElementById("nome").value = "";
+        };
+
+        var apelidos = document.getElementById("apelidos");
+        apelidos.oninvalid = function (event) {
+          var mensaxe =
+            "O campo apelidos adminte unha lonxitude minima de 4 maxina de 15";
+          event.target.setCustomValidity(mensaxe);
+          document.getElementById("erroapelidos").innerHTML = mensaxe;
+          document.getElementById("apelidos").value = "";
+        };
+
+        var dias = document.getElementById("dias");
+        dias.oninvalid = function (event) {
+          var mensaxe = "O campo DIAS adminte valores entre 0 e 31";
+          event.target.setCustomValidity(mensaxe);
+          document.getElementById("errodias").innerHTML = mensaxe;
+          document.getElementById("dias").value = "";
+        };
+      });
+    </script>
+  </body>
+</html>
