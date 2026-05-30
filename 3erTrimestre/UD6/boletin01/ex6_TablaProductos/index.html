@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <title>Tabla dinámica de Productos</title>
+  </head>
+  <body>
+    <h2>Engadir Producto</h2>
+    <form id="form">
+      <label for="productName">Nome de Producto: </label>
+      <input type="text" id="productName" required />
+
+      <label for="productPrice">Prezo: </label>
+      <input type="number" id="productPrice" required />
+
+      <label for="productDescription">Descrición: </label>
+      <input type="text" id="productDescription" required />
+
+      <button type="submit">Engadir Produto</button>
+    </form>
+
+    <h3>Lista de Productos</h3>
+    <table id="productTable">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Prezo</th>
+          <th>Descrición</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>
