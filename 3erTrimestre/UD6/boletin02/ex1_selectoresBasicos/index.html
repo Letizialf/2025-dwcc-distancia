@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 1: Selectores básicos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      div,
+      p,
+      span {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Exercicio 1: Selectores básicos con JavaScript</h2>
+    <p class="clase1">Parágrafo con clase1</p>
+    <p class="clase2">Parágrafo con clase2</p>
+    <p class="clase1">Outro parágrafo con clase1</p>
+    <p id="especial">Parágrafo con id especial</p>
+    <p>Parágrafo sen clase nin id</p>
+
+    <script>
+      // Cambiar estilo da clase1
+      let clase1 = document.querySelectorAll(".clase1");
+      clase1.forEach((el) => {
+        el.style.fontStyle = "italic";
+        el.style.backgroundColor = "yellow";
+      });
+
+      // Cambiar estilo do id especial
+      let especial = document.getElementById("especial");
+      especial.style.textDecoration = "underline";
+      especial.style.fontSize = "18px";
+
+      // Aplicar estilo a todos os <p> sen clase nin id
+      let p = document.querySelectorAll("p:not([class]):not([id])");
+      p.forEach((element) => {
+        element.style.color = "blue";
+        element.style.fontWeight = "bold";
+      });
+    </script>
+  </body>
+</html>
