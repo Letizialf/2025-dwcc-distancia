@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="script.js" defer></script>
+    <title>Adiviña o número!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        text-align: center;
+        padding: 50px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #333;
+      }
+
+      #xogo {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        padding: 30px;
+        margin-top: 20px;
+      }
+
+      input,
+      button {
+        font-size: 1.2em;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      #mensaxe {
+        font-size: 1.4em;
+        margin-top: 20px;
+        min-height: 1.5em;
+      }
+
+      .correcto {
+        color: green;
+        font-weight: bold;
+      }
+
+      .erro {
+        color: red;
+        font-weight: bold;
+      }
+
+      #intentos {
+        margin-top: 10px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Adiviña o número!</h1>
+
+    <div id="xogo">
+      <p>
+        Estou pensando nun número entre <strong>1</strong> e
+        <strong>100</strong>. Tes 10 intentos para adivialo.
+      </p>
+
+      <input type="number" id="entradaNumero" placeholder="Escribe un número" />
+      <br />
+      <button id="comprobar">Comprobar</button>
+      <button id="reiniciar">Xogar de novo</button>
+
+      <div id="mensaxe"></div>
+      <div id="intentos">Intentos restantes: <span id="contador">10</span></div>
+    </div>
+  </body>
+</html>

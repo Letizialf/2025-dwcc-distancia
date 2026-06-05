@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <title>Exercicio 1: Xestor de Tarefas Interactivo con JS</title>
+    <style>
+      body {
+        background-color: #f9f9f9;
+        font-family: "Segoe UI", sans-serif;
+        text-align: center;
+        padding: 40px;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        font-size: 2em;
+      }
+
+      input,
+      select,
+      button {
+        margin: 5px;
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      #listaTarefas {
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: left;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: none;
+      }
+
+      .tarefa {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .tarefa.completada {
+        text-decoration: line-through;
+        color: gray;
+        opacity: 0.6;
+      }
+
+      .prioridade-alta {
+        color: red;
+        font-weight: bold;
+      }
+      .prioridade-baixa {
+        color: green;
+      }
+
+      .botois {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      #contador {
+        font-style: italic;
+        margin-top: 10px;
+      }
+
+      .tema-claro {
+        background-color: #fff;
+        color: #000;
+      }
+
+      .tema-escuro {
+        background-color: #000000;
+        color: #fff;
+      }
+
+      .tema-escuro .tarefa {
+        border-color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="saudo">Benvido/a ao Xestor de Tarefas</h1>
+    <input type="text" id="nomeUsuario" placeholder="Escribe o teu nome" />
+    <button id="actualizarSaudo">Actualizar saúdo</button>
+
+    <div class="botois">
+      <input type="text" id="novaTarefa" placeholder="Nova tarefa" />
+      <select id="prioridade">
+        <option value="baixa">Baixa</option>
+        <option value="alta">Alta</option>
+      </select>
+      <button id="engadirTarefa">Engadir</button>
+      <button id="mostrarLista">Mostrar/Agochar Lista</button>
+      <button id="alternarTema">Alternar Tema</button>
+    </div>
+
+    <div id="listaTarefas" class="tema-claro">
+      <div id="tarefas"></div>
+      <p id="contador">Tarefas activas: 0</p>
+    </div>
+  </body>
+</html>
