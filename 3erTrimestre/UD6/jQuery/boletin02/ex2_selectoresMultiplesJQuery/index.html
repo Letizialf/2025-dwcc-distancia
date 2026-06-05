@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 2: Selectores Múltiples con JQuery</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      div,
+      p,
+      span {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+
+  <body>
+    <h2>Exercicio 2: Selectores múltiples e efectos</h2>
+    <div>
+      <p class="grupo1">Primeiro parágrafo do grupo1</p>
+      <p class="grupo2">Primeiro parágrafo do grupo2</p>
+    </div>
+    <div>
+      <p class="grupo1">Segundo parágrafo do grupo1</p>
+      <p class="grupo2">Segundo parágrafo do grupo2</p>
+    </div>
+    <button id="ocultar">Ocultar grupo2</button>
+    <button id="amosar">Amosar grupo2</button>
+
+    <script>
+      // Ocultar
+      $("#ocultar").click(function () {
+        $(".grupo2").fadeOut();
+      });
+
+      //   Amosar
+      $("#amosar").click(function () {
+        $(".grupo2").fadeIn();
+      });
+    </script>
+  </body>
+</html>

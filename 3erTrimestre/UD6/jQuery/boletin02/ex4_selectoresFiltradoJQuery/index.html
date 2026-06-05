@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 1: Selectores básicos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      div,
+      p,
+      span {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+    <h2>Exercicio 4: Selectores de filtrado</h2>
+    <div>
+      <p>Parágrafo A</p>
+      <p>Parágrafo B</p>
+    </div>
+    <div>
+      <p>Outro parágrafo A</p>
+      <p>Outro parágrafo B</p>
+    </div>
+
+    <script>
+      // Primeiro parágrafo global
+      $("p:first").css("color", "red");
+
+      // Último parágrafo global
+      $("p:last").css("color", "green");
+
+      // Segundo fillo de cada div
+      $("div p:nth-child(2)").css("text-decoration", "underline");
+
+      // Pares e impares
+      $("p:even").css("background-color", "pink");
+      $("p:odd").css("background-color", "#eef");
+    </script>
+  </body>
+</html>

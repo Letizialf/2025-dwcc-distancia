@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 1: Selectores básicos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      div,
+      p,
+      span {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+
+  <body>
+    <h2>Exercicio 5: Selectores de atributos</h2>
+    <form>
+      <input type="text" placeholder="Nome" />
+      <input type="password" placeholder="Contrasinal" />
+      <label
+        ><input type="radio" name="opcion" value="1" checked /> Opción 1</label
+      ><br />
+      <label><input type="radio" name="opcion" value="2" /> Opción 2</label
+      ><br />
+    </form>
+
+    <script>
+      // Cambiar a cor a laranxa cando o radio está checked
+      $("input[type='radio']").change(function () {
+        $('input[type="radio"]').parent().css("color", "");
+        $('input[type="radio"]:checked').parent().css("color", "orange");
+      });
+
+      //   Facer que ao iniciar a web xa esté naranxa a opción preseleccionada
+      $("input[checked]").parent().css("color", "orange");
+
+      // Estilo segundo span se value contén '2'
+      $('input[value="2"]').parent().css("font-weight", "bold");
+    </script>
+  </body>
+</html>

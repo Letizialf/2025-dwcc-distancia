@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 1: Selectores básicos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      div,
+      p,
+      span {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+    <h2>Exercicio 3: Selectores de xerarquía</h2>
+    <ol>
+      <li id="primeiro">Elemento 1</li>
+      <li>
+        Elemento 2
+        <ul>
+          <li>Subelemento 2.1</li>
+          <li>Subelemento 2.2</li>
+        </ul>
+      </li>
+      <li>Elemento 3</li>
+    </ol>
+
+    <script>
+      // Descendentes directos
+      $("ol > li").css("border", "solid 2px red");
+
+      // Todos os descendentes li de ol
+      $("ol li").css("background-color", "#eef");
+
+      // Só o irmán seguinte ao primeiro
+      $("#primeiro + li").css("font-weight", "bold");
+
+      // Todos os irmáns seguintes ao primeiro
+      $("#primeiro ~ li").css("font-style", "italic");
+    </script>
+  </body>
+</html>

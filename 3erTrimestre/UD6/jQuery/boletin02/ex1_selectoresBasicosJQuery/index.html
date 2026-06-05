@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 1: Selectores básicos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      div,
+      p,
+      span {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+    <h2>Exercicio 1: Selectores básicos con jQuery</h2>
+    <p class="clase1">Parágrafo con clase1</p>
+    <p class="clase2">Parágrafo con clase2</p>
+    <p class="clase1">Outro parágrafo con clase1</p>
+    <p id="especial">Parágrafo con id especial</p>
+    <p>Parágrafo sen clase nin id</p>
+
+    <script>
+      // Para cambiar os estilos de un elemento cuya clase = 'clase1' temos que seleccionar o elemento pola sua clase e despois aplicarlle o css que queremos engadir
+      $(".clase1").css({
+        "font-style": "italic",
+        "background-color": "yellow",
+      });
+
+      //   Para cambiar o estilo dun elemento con id='especial' facemos o mesmo
+      $("#especial").css({
+        "text-decoration": "underline",
+        "font-size": "18px",
+      });
+
+      //   Agora, se queremos traballar con un elemento que non ten ningun atributo deberemos facer o seguinte:
+      //   Collemos o elemento mediante a negación de atributos e logo engadimoslle o css como sempre
+      $("p:not([class]):not([id])").css({
+        color: "blue",
+        "font-weight": "bold",
+      });
+    </script>
+  </body>
+</html>
