@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 3</title>
+    <style>
+      .rosa {
+        background-color: pink;
+        color: rgb(74, 48, 48);
+      }
+      .verde {
+        background-color: rgb(164, 206, 164);
+        color: rgb(7, 30, 10);
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button id="alternarClase" class="rosa">Cambia a cor</button>
+
+    <script>
+      $("#alternarClase").click(function () {
+        // $("#alternarClase").toggleClass("rosa verde");
+        $(this).toggleClass("rosa verde");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 4</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button id="mostrar">Mostrar</button>
+    <button id="agochar">Agochar</button>
+    <p id="texto" style="display: none">Este texto aparece e desaparece</p>
+
+    <script>
+      $("#mostrar").click(function () {
+        $("#texto").fadeIn("slow");
+      });
+
+      $("#agochar").click(function () {
+        $("#texto").fadeOut("slow");
+      });
+    </script>
+  </body>
+</html>

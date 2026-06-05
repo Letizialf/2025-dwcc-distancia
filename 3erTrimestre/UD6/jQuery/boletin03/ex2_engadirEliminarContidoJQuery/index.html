@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button id="engadir">Engadir parágrafo</button>
+    <button id="eliminar">Eliminar parágrafos</button>
+    <div id="zona"></div>
+
+    <script>
+      // Para engadir un novo <p> temos que acceder ao botón
+      $("#engadir").click(function () {
+        // Unha vez accedemos ao botón e lle engadimos o evento, creamos a funcion que se executará cada vez que suceda o evento:
+        // Esto accede ao contedor e engade o novo <p>
+        $("#zona").append("<p> Parágrafo engadido </p>");
+      });
+
+      // Para eliminar todos os <p> do contedor só temos que acceder ó contedor e vacialo
+      $("#eliminar").click(function () {
+        $("#zona").empty();
+      });
+    </script>
+  </body>
+</html>

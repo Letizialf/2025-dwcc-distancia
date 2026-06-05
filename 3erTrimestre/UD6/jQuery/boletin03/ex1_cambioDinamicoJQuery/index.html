@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercicio 1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <h2 id="titulo">Benvido/a</h2>
+    <input type="text" id="nome" placeholder="Escribe o teu nome" />
+    <button id="cambiarTexto">Cambiar título</button>
+
+    <script>
+      // Temos que acceder ó input co nome e recoller o seu valor cando se faga click no botón.
+      // Tamén debemos modificar o h2 co valor do input unha vez se clicka o botón
+
+      //   Accedemos ao botón e engadimoslle o evento, o cal executará unha funcion
+      $("#cambiarTexto").click(function () {
+        // Esta funcion modifica o título da web (elemento h2) cambiando o texto (textContent) e engadíndolle o valor(val()) do elemento #nome
+        $("#titulo").text(`Benvido/a ${$("#nome").val()}`);
+      });
+    </script>
+  </body>
+</html>
