@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="gl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Adiviña o número!</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        text-align: center;
+        padding: 50px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #333;
+      }
+
+      #xogo {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        padding: 30px;
+        margin-top: 20px;
+      }
+
+      input,
+      button {
+        font-size: 1.2em;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      #mensaxe {
+        font-size: 1.4em;
+        margin-top: 20px;
+        min-height: 1.5em;
+      }
+
+      .correcto {
+        color: green;
+        font-weight: bold;
+      }
+
+      .erro {
+        color: red;
+        font-weight: bold;
+      }
+
+      #intentos {
+        margin-top: 10px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Adiviña o número!</h1>
+
+    <div id="xogo">
+      <p>
+        Estou pensando nun número entre <strong>1</strong> e
+        <strong>100</strong>. Tes 10 intentos para adivialo.
+      </p>
+
+      <input type="number" id="entradaNumero" placeholder="Escribe un número" />
+      <br />
+      <button id="comprobar">Comprobar</button>
+      <button id="reiniciar">Xogar de novo</button>
+
+      <div id="mensaxe"></div>
+      <div id="intentos">Intentos restantes: <span id="contador">10</span></div>
+    </div>
+
+    <script>
+      let secretNumber;
+      let remainingAttempts;
+      // Inicio do xogo
+      function startGame() {
+        // Xeramos o numero aleatorio
+        secretNumber = Math.floor(Math.random() * 100) + 1;
+        // Establecemos o número de intentos restantes a 10
+        remainingAttempts = 10;
+        // Actualizamos o contador cos intentos restantes
+        $("#contador").text(remainingAttempts);
+        // Reactivamos o boton para comprobar
+        $("#comprobar").prop("disabled", false);
+        // Limpamos o input e reactivamos o campo
+        $("#entradaNumero").val("").prop("disabled", false);
+        // Eliminamos as clases e vaciamos o texto
+        $("#mensaxe").text("").removeClass("erro correcto");
+      }
+
+      //   Comprobar o número do usuario co número secreto
+      $("#comprobar").click(function () {
+        let userNumber = parseInt($("#entradaNumero").val()); //Almacenamos o numero que introduce o usuario para poder comparalo co numero da app
+
+        // Antes de comparar os números temos que asegurarnos de que o valor introducido no input é válido
+        if (isNaN(userNumber) || userNumber < 0 || userNumber > 100) {
+          $("#mensaxe")
+            .text(
+              "Asegúrate de que o valor introducido sexa un número válido entre 0 e 100"
+            )
+            .addClass("erro")
+            .removeClass("correcto");
+          return;
+        }
+        //Restamos un intento unha vez comprobamos que o número introducido é válido
+        remainingAttempts--;
+        // Actualizamos o contador na web
+        $("#contador").text(remainingAttempts);
+
+        // Agora comparamos os números
+        if (userNumber === secretNumber) {
+          $("#mensaxe")
+            .text(
+              "Correcto! Ganaches, podes reiniciar o xogo no botón para poder seguir xogando"
+            )
+            .addClass("correcto")
+            .removeClass("erro");
+          // Aquí temos que chamar logo unha funcion que desactive o input e o botón de comprobar cando o usuario gane ou quede sen intentos
+          endGame();
+        } else if (remainingAttempts <= 0) {
+          $("#mensaxe")
+            .text(
+              `Perdeches, o número era: ${secretNumber}. Reinicia o xogo se queres seguir intentándoo`
+            )
+            .addClass("erro")
+            .removeClass("correcto");
+          //   Chamada á funcion que termina o xogo
+          endGame();
+        } else if (userNumber > secretNumber) {
+          $("#mensaxe")
+            .text("Moi alto")
+            .addClass("erro")
+            .removeClass("correcto");
+        } else if (userNumber < secretNumber) {
+          $("#mensaxe")
+            .text("Moi baixo")
+            .addClass("erro")
+            .removeClass("correcto");
+        }
+      });
+
+      //   Función que finaliza o xogo
+      function endGame() {
+        $("#entradaNumero").prop("disabled", true);
+        $("#comprobar").prop("disabled", true);
+      }
+
+      //   Botón para reiniciar o xogo
+      $("#reiniciar").click(function () {
+        startGame();
+      });
+      //   Iniciamos o xogo cando se carga a web
+      startGame();
+    </script>
+  </body>
+</html>

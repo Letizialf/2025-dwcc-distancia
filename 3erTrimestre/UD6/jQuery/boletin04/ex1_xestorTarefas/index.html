@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        background-color: #f9f9f9;
+        font-family: "Segoe UI", sans-serif;
+        text-align: center;
+        padding: 40px;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        font-size: 2em;
+      }
+
+      input,
+      select,
+      button {
+        margin: 5px;
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      #listaTarefas {
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: left;
+        /* background: #fff; */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: none; /*Para cando fagamos a funcionalidade de amosar/ocultar a lista temos que cambiar esta liña*/
+      }
+
+      .tarefa {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .tarefa.completada {
+        text-decoration: line-through;
+        color: gray;
+        opacity: 0.6;
+      }
+
+      .prioridade-alta {
+        color: red;
+        font-weight: bold;
+      }
+      .prioridade-baixa {
+        color: green;
+      }
+
+      .botois {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      #contador {
+        font-style: italic;
+        margin-top: 10px;
+      }
+
+      .tema-claro {
+        background-color: #fff;
+        color: #000;
+      }
+
+      .tema-escuro {
+        background-color: #000000;
+        color: #fff;
+      }
+
+      .tema-escuro .tarefa {
+        border-color: #666;
+      }
+    </style>
+    <title>Xestor de Tarefas</title>
+  </head>
+  <body>
+    <h1 id="saudo">Benvido/a ao Xestor de Tarefas</h1>
+    <input type="text" id="nomeUsuario" placeholder="Escribe o teu nome" />
+    <button id="actualizarSaudo">Actualizar saúdo</button>
+
+    <div class="botois">
+      <input type="text" id="novaTarefa" placeholder="Nova tarefa" />
+      <select id="prioridade">
+        <option value="baixa">Baixa</option>
+        <option value="alta">Alta</option>
+      </select>
+      <button id="engadirTarefa">Engadir</button>
+      <button id="mostrarLista">Mostrar/Agochar Lista</button>
+      <button id="alternarTema">Alternar Tema</button>
+    </div>
+
+    <div id="listaTarefas" class="tema-claro">
+      <div id="tarefas"></div>
+      <p id="contador">Tarefas activas: 0</p>
+    </div>
+  </body>
+  <script>
+    let contadorTarefas = 0;
+    // Primeiro temos que actualizar o título co nome do usuario unha vez se clicke o botón
+    $("#actualizarSaudo").click(function () {
+      //   $("#saudo").text(`Benvido/a ${$("#nomeUsuario").val()}`);
+      const nome = $("#nomeUsuario").val().trim();
+      $("#saudo").text(`Ola ${nome}! Aquí están as tuas tarefas:`);
+    });
+
+    // Engadir tarefas
+    $("#engadirTarefa").click(function () {
+      const texto = $("#novaTarefa").val().trim(); //Recollemos o texto que corresponde coa nova tarefa
+      const prioridade = $("#prioridade").val(); //Recollemos tamén a prioridade
+
+      //   Comprobamos que efectivamente hai texto no input para que se engada unha nova tarefa
+      if (texto !== "") {
+        const clase =
+          prioridade === "alta" ? "prioridade-alta" : "prioridade-baixa";
+
+        const novaTarefa = $(
+          `<div class= "tarefa ${clase}"> <span> ${texto} </span> <button class='completar'>✔</button><button class='eliminar'>🗑</button><div>`
+        );
+
+        $("#tarefas").append(novaTarefa.hide().fadeIn(500));
+        $("#novaTarefa").val("");
+
+        // RECORDAR ACTUALIZAR O CONTADOR
+        actualizarContador(1);
+      } else {
+        alert("Tes que escribir o título para poder engadir unha tarefa nova");
+        return;
+      }
+    });
+
+    //Marcar tarefas como completadas
+    $("#tarefas").on("click", ".completar", function () {
+      //No contedor que almacena todas as tarefas temos que acceder á tarefa que foi clickada
+      $(this).closest(".tarefa").toggleClass("completada");
+    });
+
+    // Eliminar tarefas individualmente
+    $("#tarefas").on("click", ".eliminar", function () {
+      $(this)
+        .closest(".tarefa")
+        .fadeOut(500, function () {
+          $(this).remove();
+          actualizarContador(-1);
+        });
+    });
+
+    // Amosar e agochar a lista de tarefas
+    $("#mostrarLista").click(function () {
+      $("#listaTarefas").slideToggle();
+    });
+
+    // Actualizar o contador de tarefas
+    function actualizarContador(cambio) {
+      contadorTarefas += cambio; //Actualizamoos a variable sumándolle o incremento ou decremento
+      contadorTarefas = Math.max(0, contadorTarefas); //Volvemos a actualizar a variable para que o seu valor non sexa <0
+
+      $("#contador").text(`Tarefas activas: ${contadorTarefas}`);
+    }
+
+    // Alternar tema claro/oscuro
+    $("#alternarTema").click(function () {
+      $("#listaTarefas").toggleClass("tema-claro tema-escuro");
+    });
+  </script>
+</html>
