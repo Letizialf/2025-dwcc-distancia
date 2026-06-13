@@ -27,9 +27,9 @@ export default {
     const mensaxe = ref("");
 
     // Propiedade computada para determinar se o contador é par ou impar:
-    const parOuImpar = computed(() => {
-      contador.value % 2 === 0 ? "O contador é par" : "O contador é impar";
-    });
+    const parOuImpar = computed(() =>
+      contador.value % 2 === 0 ? "O contador é par" : "O contador é impar"
+    );
 
     // Métodos para incrementar e reiniciar o contador
     const incrementar = () => {

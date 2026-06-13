@@ -12,5 +12,5 @@ export default {
 
 <template>
   <!-- <HelloWorld /> -->
-  <Contador />
+  <Contador :inicial="9" />
 </template>
