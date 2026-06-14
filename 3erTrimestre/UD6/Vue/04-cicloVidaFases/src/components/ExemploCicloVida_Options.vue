@@ -1,7 +1,9 @@
 <template>
-  <h1>Exemplo de hooks sobre o ciclo de vida dun compoñente</h1>
+  <div>
+    <h1>Exemplo de hooks sobre o ciclo de vida dun compoñente</h1>
 
-  <p>{{ mensaxe }}</p>
+    <p>{{ mensaxe }}</p>
+  </div>
 </template>
 
 <script>
