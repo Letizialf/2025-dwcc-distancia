@@ -1,5 +1,6 @@
 <template>
   <ul>
+    <!-- Cando se dea o evento 'remove' executa o método 'removeTask', que á sua vez emite un evento para que App.vue o escoite e execute a función desexada -->
     <TaskItem
       v-for="(task, index) in tasks"
       :key="index"
