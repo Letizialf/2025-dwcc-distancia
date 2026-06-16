@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tarefa 2</title>
+    <link
+      rel="stylesheet"
+      href="libs/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1 class="m-3">Tarefa - Consulta lonxas</h1>
+
+      <form>
+        <div class="form-group row">
+          <label for="_provincia" class="col-2 col-form-label"
+            >Provincia:</label
+          >
+          <div class="col-10">
+            <select name="_provincia" class="form-control" id="_provincia">
+              <option value="A Coruña">A Coruña</option>
+              <option value="Lugo">Lugo</option>
+              <option value="Ourense">Ourense</option>
+              <option value="Pontevedra">Pontevedra</option>
+              <option value="">Todas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="_data" class="col-2 col-form-label">Data:</label>
+          <div class="col-10">
+            <input
+              class="form-control"
+              name="_data"
+              type="date"
+              data-date-format="YYYY-MM-DD"
+              value="2019-01-02"
+              id="_data"
+            />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="_grupobiologico" class="col-2 col-form-label"
+            >Grupo Biolóxico:</label
+          >
+          <div class="col-10">
+            <select
+              name="_grupobiologico"
+              class="form-control"
+              id="_grupobiologico"
+            >
+              <option value="">Todas</option>
+              <option value="Algas">Algas</option>
+              <option value="Bivalvos">Bivalvos</option>
+              <option value="Cefalópodos">Cefalópodos</option>
+              <option value="Crustáceos">Crustáceos</option>
+              <option value="Equinodermos">Equinodermos</option>
+              <option value="Gasterópodos">Gasterópodos</option>
+              <option value="Peixes">Peixes</option>
+              <option value="Poliquetos">Poliquetos</option>
+              <option value="Resto das descargas">Resto das descargas/</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="obterDatos" type="button" class="btn btn-primary m-3">
+          Obter datos
+        </button>
+        <button id="limpar" type="button" class="btn btn-primary m-3">
+          Limpar
+        </button>
+      </form>
+
+      <div
+        id="spinner"
+        class="spinner-border text-muted"
+        style="display: none"
+      ></div>
+
+      <div><span id="nomeConcello" class="well text-primary"></span><br /></div>
+
+      <table id="resultado" class="table table-striped m-4"></table>
+
+      <div
+        id="info"
+        class="alert border rounded m-4 bg-dark text-white d-none"
+      ></div>
+    </div>
+
+    <script>
+      //CÓDIGO PARA IMPLEMENTAR POLO ALUMNADO
+      const divInfo = document.getElementById("info");
+
+      //Engade os listners aos botóns "obterDatos" e "limpar"
+      const btnObterDatos = document.getElementById("obterDatos");
+      const btnLimpar = document.getElementById("limpar");
+
+      btnObterDatos.addEventListener("click", obterDatos);
+      btnLimpar.addEventListener("click", limpar);
+
+      //Implementa unha función para solicitar os datos ao servidor e mostre a resposta.
+      function obterDatos() {
+        // Primeiro temos que capturar os valores do formulario
+        const provincia = document.getElementById("_provincia").value;
+        const data = document.getElementById("_data").value;
+        const grupoBioloxico = document.getElementById("_grupobiologico").value;
+
+        //Ahora definimos os parámetros que conformarán o corpo da url
+        const params = new URLSearchParams({
+          _provincia: provincia,
+          _data: data,
+          _grupobiologico: grupoBioloxico,
+        });
+
+        const url = `filtro.php?${params.toString()}`;
+
+        fetch(url)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Error HTTP: " + response.status);
+            }
+            return response;
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            mostrarErro(error);
+          });
+      }
+
+      //Función para mostrar o erro no caso de fallo a petición ao servidor.
+      function mostrarErro(errorMessage) {
+        divInfo.innerHTML = `<div class="alert alert-danger mt-4">
+        <strong>Erro:</strong>${errorMessage}
+        </div>`;
+      }
+      //Función para limpar a interface.
+    </script>
+  </body>
+</html>
