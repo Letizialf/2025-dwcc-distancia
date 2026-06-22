@@ -6,5 +6,37 @@
     <title>Comprobar código</title>
   </head>
   <body></body>
-  <script></script>
+  <script>
+    function comprobarEAN13(code) {
+      // Comprobamos que o código ten 13 díxitos numéricos cunha regex
+
+      if (!/\d{13}/.test(code)) {
+        console.error(
+          "O código introducido ten que ser númerico cunha lonxitude de 13 díxitos"
+        );
+
+        return false;
+      }
+
+      //   Unha vez nos aseguramos de que son numeros procedemos coa lóxica
+
+      //   Creamos un array cos díxitos (split) e convertímolos a Number (map)
+      const dixitos = code.split("").map(Number);
+
+      //   Collemos os primeiros 12 díxitos e aplicamos un reduce para que cada vez que a posición sexa impar o número a sumar se multiplique por 3
+      const suma = dixitos.slice(0, 12).reduce((acc, dixito, index) => {
+        return acc + (index % 2 === 0 ? dixito : dixito * 3);
+      }, 0);
+
+      //   Calculamos canto queda para que o resultado da suma remate en 0
+      const digitoControlCalculado = (10 - (suma % 10)) % 10;
+
+      // Comparammos o dixito de control que calculamos nós co que ven no código e se son iguais devolve true
+      return digitoControlCalculado === dixitos[12];
+    }
+
+    console.log(comprobarEAN13("8412345678905"));
+    console.log(comprobarEAN13("84123A5678905"));
+    console.log(comprobarEAN13("12345"));
+  </script>
 </html>

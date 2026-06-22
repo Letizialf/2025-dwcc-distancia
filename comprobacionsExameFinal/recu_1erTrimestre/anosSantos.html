@@ -6,5 +6,41 @@
     <title>Calcular os anos santos</title>
   </head>
   <body></body>
-  <script></script>
+  <script>
+    function obterAnosSantos(ano1, ano2) {
+      const anosSantos = []; //Array no que almacenaremos os anos que si sexan santos
+
+      //   Comprobamos que os valores son válidos
+      if (isNaN(ano1) || isNaN(ano2)) {
+        console.error("Un dos valores non é válido");
+        return;
+      } else if (ano1 > ano2) {
+        console.error("O primeiro parámetro ten que ser menor que o segundo");
+        return;
+      }
+
+      //   Unha vez sabemos que os valores son aptos, facemos a comprobacion
+
+      // Recorremos os anos dende ano1 ata ano2
+      for (let ano = ano1; ano <= ano2; ano++) {
+        // Almacenamos o valor do ano da iteracion nunha variable nova na que o ano corresponde ó valor da iteración e o mes e o día ó 25 de Xullo (Recordar que os meses van de 0-11)
+        const data = new Date(ano, 6, 25);
+
+        // Se o dia é 0 === Domingo
+        if (data.getDay() === 0) {
+          // Engadimos o ano no array
+          anosSantos.push(data.getFullYear());
+        }
+      }
+      console.log(anosSantos);
+    }
+
+    //Comprobacions dos anos
+    obterAnosSantos(2020, 2026);
+    obterAnosSantos("a", 2024);
+    obterAnosSantos(2020, "vb");
+    obterAnosSantos(2020, 2015);
+    obterAnosSantos(2000, 2026);
+    obterAnosSantos(2000, 2000);
+  </script>
 </html>
